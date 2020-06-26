@@ -568,9 +568,10 @@ static const NSUInteger kIndexPathItemIndex = 1;
     id<MPNativeAdRenderer> renderer = ad.renderer;
 
     CGSize adSize;
+    MPNativeAdData *adData = [self.adPlacementData adDataAtAdjustedIndexPath:indexPath];
 
     if ([renderer respondsToSelector:@selector(viewSizeHandler)] && renderer.viewSizeHandler) {
-        adSize = [renderer viewSizeHandler](maxWidth);
+        adSize = [renderer viewSizeHandler](maxWidth, adData.ad.properties);
         if (adSize.height == MPNativeViewDynamicDimension) {
             UIView *adView = [ad retrieveAdViewForSizeCalculationWithError:nil];
             if (adView) {

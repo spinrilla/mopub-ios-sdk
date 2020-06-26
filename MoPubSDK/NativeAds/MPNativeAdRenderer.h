@@ -20,7 +20,7 @@
  *
  *  @return Size of the view as rendered given the maximum width desired.
  */
-typedef CGSize (^MPNativeViewSizeHandler)(CGFloat maximumWidth);
+typedef CGSize (^MPNativeViewSizeHandler)(CGFloat maximumWidth, NSDictionary *adDataProperties);
 
 /**
  * The MoPub SDK has a concept of native ad renderer that allows you to render the ad however you want. It also gives you the
